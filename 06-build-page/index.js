@@ -206,7 +206,14 @@ async function createDistWithInner() {
                             })
                             copyFoldersWithInner(folder, dist, pathsToCheck[i])
                         } else {
-                            fs.readFile(path.join(__dirname, path.normalize(currentPath), pathsToCheck[i]), 'utf8', (err, data) => {
+                            // fs.promises.readFile(path.join(__dirname, path.normalize(currentPath), pathsToCheck[i]))
+                            // .then(function(result) {
+                            //     console.log("da"+result);
+                            //   })
+                            //   .catch(function(error) {
+                            //      console.log(error);
+                            //   })
+                            fs.readFile(path.join(__dirname, path.normalize(currentPath), pathsToCheck[i]), (err, data) => {
                                 if (err) {
                                     console.error(err)
                                     return
