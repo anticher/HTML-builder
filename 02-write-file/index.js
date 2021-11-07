@@ -4,7 +4,7 @@ const path = require('path')
 process.stdout.write('hello, enter your ToDo\n')
 process.stdin.on('data', (data) => {
     const text = data.toString()
-    if (text === 'exit\n') {
+    if (text.trim() === 'exit') {
         process.exit()
     }
     fs.appendFile(path.join(__dirname, 'text.txt'), text, (error, data) => {
